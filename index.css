@@ -39,6 +39,8 @@ h1 {
   flex-direction: row;
   width: 100%;
   justify-content: flex-end;
+  font-family: 'Comic Neue', sans-serif;
+  font-weight: 700;
 }
 .dataContainer {
   display: flex;
