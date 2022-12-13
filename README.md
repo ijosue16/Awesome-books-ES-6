@@ -202,12 +202,6 @@ You can deploy this project using:
 - GitHub: [@ijosue16](https://github.com/ijosue16)
 
 
-**👤 Author2**
-
-- GitHub: [@maccony202](https://github.com/maccony202)
-
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
