@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import Navlisteners from './modules/navlistener.js';
 import BookShelv from './modules/UI-layout.js';
-import { DateTime, DATETIME_FULL_WITH_SECONDS } from './modules/times.js';
+import { DateTime } from './modules/times.js';
 
 const dataContainer = document.querySelector('.dataContainer');
 const formSubmision = document.querySelector('.formSubmission');
@@ -15,7 +15,8 @@ const dataContainerTitle = document.querySelector('.dataContainerTitle');
 const time = document.querySelector('.time');
 
 const bookshel = new BookShelv(dataContainer);
-const navlisteners2 = new Navlisteners(dataContainer, contactSection, formSubmision, dataContainerTitle);
+const navlisteners2 = new Navlisteners(dataContainer, contactSection,
+  formSubmision, dataContainerTitle);
 
 function clock() {
   const dt = DateTime.now();
