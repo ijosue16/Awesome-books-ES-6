@@ -1,4 +1,8 @@
 /* eslint-disable no-restricted-globals */
+import Navlisteners from './modules/navlistener.js';
+import BookShelv from './modules/UI-layout.js';
+import { DateTime } from './modules/times.js';
+
 const dataContainer = document.querySelector('.dataContainer');
 const formSubmision = document.querySelector('.formSubmission');
 const titleInput = document.querySelector('.title');
@@ -8,75 +12,24 @@ const addNew = document.querySelector('.Add-New');
 const Contact = document.querySelector('.Contact');
 const contactSection = document.querySelector('.contact');
 const dataContainerTitle = document.querySelector('.dataContainerTitle');
+const time = document.querySelector('.time');
 
-class BookShelv {
-  books = JSON.parse(localStorage.getItem('books')) || [];
+const bookshel = new BookShelv(dataContainer);
+const navlisteners2 = new Navlisteners(dataContainer, contactSection,
+  formSubmision, dataContainerTitle);
 
-  addBooks() {
-    const addedBook = {
-      title: titleInput.value,
-      author: authorInput.value,
-    };
-    this.books.push(addedBook);
+const clock = () => {
+  const dt = DateTime.now();
+  time.innerHTML = dt.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+};
 
-    localStorage.setItem('books', JSON.stringify(this.books));
-  }
+setInterval(clock, 10);
 
-  displayBooks() {
-    this.books.forEach((hold) => {
-      const elementContainer = document.createElement('div');
-      elementContainer.classList.add('element-container');
-      const infoContainer = document.createElement('p');
-      const removeButton = document.createElement('button');
-      removeButton.classList.add('removebtn');
-      removeButton.type = 'button';
-
-      infoContainer.innerText = `"${hold.title}" by ${hold.author}`;
-      removeButton.innerText = 'Remove';
-      elementContainer.append(infoContainer, removeButton);
-      dataContainer.appendChild(elementContainer);
-    });
-  }
-
-  removeBook(removeButton, index) {
-    dataContainer.removeChild(removeButton.parentElement);
-    this.books.splice(index, 1);
-    localStorage.setItem('books', JSON.stringify(this.books));
-    location.reload();
-  }
-
-  static ListRemove() {
-    dataContainer.style.display = 'flex';
-    contactSection.style.display = 'none';
-    formSubmision.style.display = 'none';
-    dataContainerTitle.style.display = 'flex';
-
-    if (dataContainer.childElementCount === 0) {
-      dataContainer.style.display = 'none';
-    }
-  }
-
-  static addNewRemove() {
-    dataContainer.style.display = 'none';
-    formSubmision.style.display = 'flex';
-    dataContainerTitle.style.display = 'none';
-    contactSection.style.display = 'none';
-  }
-
-  static ContactRemove() {
-    formSubmision.style.display = 'none';
-    dataContainer.style.display = 'none';
-    contactSection.style.display = 'flex';
-    dataContainerTitle.style.display = 'none';
-  }
-}
-
-const bookshelv = new BookShelv();
-bookshelv.displayBooks();
+bookshel.displayBooks();
 const removeBtns = document.querySelectorAll('.removebtn');
 removeBtns.forEach((btn, index) => {
   btn.addEventListener('click', () => {
-    bookshelv.removeBook(btn, index);
+    bookshel.removeBook(btn, index);
   });
 });
 
@@ -88,23 +41,23 @@ formSubmision.style.display = 'none';
 
 formSubmision.addEventListener('submit', (e) => {
   e.preventDefault();
-  bookshelv.addBooks();
-  location.reload();
+  bookshel.addBooks(titleInput.value, authorInput.value);
+  window.location.reload();
 
   titleInput.value = '';
   authorInput.value = '';
 });
 List.addEventListener('click', (l) => {
   l.preventDefault();
-  BookShelv.ListRemove();
+  navlisteners2.ListRemove();
 });
 
 addNew.addEventListener('click', (l) => {
   l.preventDefault();
-  BookShelv.addNewRemove();
+  navlisteners2.addNewRemove();
 });
 
 Contact.addEventListener('click', (l) => {
   l.preventDefault();
-  BookShelv.ContactRemove();
+  navlisteners2.ContactRemove();
 });

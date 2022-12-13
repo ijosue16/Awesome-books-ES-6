@@ -80,32 +80,6 @@
 
 **[]** is a...
 
-## 🛠 Built With <a name="built-with"></a>
-
-### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
-<details>
-  <summary>tech 1</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">HTML</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>tech 2</summary>
-  <ul>
-    <li><a href="https://www.w3schools.com/css/">CSS</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>tech 3</summary>
-  <ul>
-    <li><a href="https://www.javascripttutorial.net/">JavaScript</a></li>
-  </ul>
-</details>
 
 
 
@@ -113,8 +87,8 @@
 
 > Describe between 1-3 key features of the application.
 
-- **[key_feature_1]**
-- **[key_feature_2]**
+- **[used modules]**
+- **[arrow functions]**
 - **[key_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -200,12 +174,6 @@ You can deploy this project using:
 👤 **Author1**
 
 - GitHub: [@ijosue16](https://github.com/ijosue16)
-
-
-**👤 Author2**
-
-- GitHub: [@maccony202](https://github.com/maccony202)
-
 
 
 
