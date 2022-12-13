@@ -18,10 +18,10 @@ const bookshel = new BookShelv(dataContainer);
 const navlisteners2 = new Navlisteners(dataContainer, contactSection,
   formSubmision, dataContainerTitle);
 
-function clock() {
+const clock = () => {
   const dt = DateTime.now();
   time.innerHTML = dt.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-}
+};
 
 setInterval(clock, 10);
 
