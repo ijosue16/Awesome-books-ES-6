@@ -41,7 +41,9 @@ h1 {
   justify-content: flex-end;
   font-family: 'Comic Neue', sans-serif;
   font-weight: 700;
+  padding: 0.5rem 0 0.5rem 0;
 }
+
 .dataContainer {
   display: flex;
   flex-direction: column;
